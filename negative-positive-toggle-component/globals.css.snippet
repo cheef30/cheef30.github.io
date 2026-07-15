@@ -1,0 +1,11 @@
+/* Add to app/globals.css. */
+@media (prefers-reduced-motion: no-preference) {
+  html.theme-flash {
+    animation: rc-theme-flash 0.45s ease;
+  }
+}
+@keyframes rc-theme-flash {
+  0% { filter: invert(0); }
+  35% { filter: invert(1) hue-rotate(180deg); }
+  100% { filter: invert(0); }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>Page Not Found — Rotten Cherry Co.</title>
+<meta name="description" content="This page doesn't exist. Head back to Rotten Cherry Co. to see the work, pricing or get in touch.">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<script>
+(function () {
+  try {
+    var stored = localStorage.getItem('rc-theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-main">ROTTEN<br>CHERRY</span>
+      <span class="logo-script">Co.</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="/gallery" data-i18n="nav_work">WORK</a>
+      <a href="/#vision" data-i18n="nav_vision">VISION</a>
+      <a href="/about" data-i18n="nav_about">ABOUT</a>
+      <a href="/#services" data-i18n="nav_services">SERVICES</a>
+      <a href="/pricing" data-i18n="nav_pricing">PRICING</a>
+      <a href="/contact" data-i18n="nav_contact">CONTACT</a>
+    </nav>
+
+    <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+      <span class="lang-sep">/</span>
+      <button type="button" class="lang-btn" data-lang="sr" aria-pressed="false">SR</button>
+    </div>
+
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Toggle negative/positive mode">
+      <span class="theme-toggle-label">POSITIVE</span>
+    </button>
+
+    <button type="button" class="sound-toggle" id="sound-toggle" aria-pressed="false" aria-label="Unmute shutter sound">
+      <svg class="icon-off" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/>
+        <path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <svg class="icon-on" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/>
+        <path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </svg>
+    </button>
+
+    <a href="/contact" class="lets-create">
+      <span data-i18n="lets_create">LET'S CREATE</span>
+      <svg class="star" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" fill="currentColor"/>
+      </svg>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="notfound-section">
+    <span class="notfound-num">404</span>
+    <h1 data-i18n="notfound_title">THIS FRAME<br>DIDN'T <span class="red">DEVELOP.</span></h1>
+    <p data-i18n="notfound_text">The page you're looking for doesn't exist or has moved.</p>
+    <div class="notfound-actions">
+      <a href="/" class="btn-outline" data-i18n="notfound_home">BACK TO HOME</a>
+      <a href="/gallery" class="notfound-link" data-i18n="notfound_gallery">VIEW THE GALLERY &rarr;</a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER TICKER -->
+<footer class="ticker" aria-label="Studio info">
+  <div class="ticker-track" id="ticker-track">
+    <!-- JS duplicates this set for seamless loop -->
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="theme-toggle.js"></script>
+<script src="viewfinder-cursor.js"></script>
+<script src="shutter-sound.js"></script>
+</body>
+</html>

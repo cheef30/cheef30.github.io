@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Rotten Cherry Co.</title>
+<meta name="description" content="Meet the person, the process and the philosophy behind Rotten Cherry Co. — narrative-driven photography and visual storytelling.">
+<link rel="canonical" href="https://rottencherry.co/about">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rotten Cherry Co.">
+<meta property="og:title" content="About — Rotten Cherry Co.">
+<meta property="og:description" content="Meet the person, the process and the philosophy behind Rotten Cherry Co. — narrative-driven photography and visual storytelling.">
+<meta property="og:url" content="https://rottencherry.co/about">
+<meta property="og:image" content="https://rottencherry.co/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — Rotten Cherry Co.">
+<meta name="twitter:description" content="Meet the person, the process and the philosophy behind Rotten Cherry Co. — narrative-driven photography and visual storytelling.">
+<meta name="twitter:image" content="https://rottencherry.co/img/og-image.jpg">
+
+<script>
+(function () {
+  try {
+    var stored = localStorage.getItem('rc-theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-main">ROTTEN<br>CHERRY</span>
+      <span class="logo-script">Co.</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="/gallery" data-i18n="nav_work">WORK</a>
+      <a href="/#vision" data-i18n="nav_vision">VISION</a>
+      <a href="/about" class="active-nav" data-i18n="nav_about">ABOUT</a>
+      <a href="/#services" data-i18n="nav_services">SERVICES</a>
+      <a href="/pricing" data-i18n="nav_pricing">PRICING</a>
+      <a href="/contact" data-i18n="nav_contact">CONTACT</a>
+    </nav>
+
+    <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+      <span class="lang-sep">/</span>
+      <button type="button" class="lang-btn" data-lang="sr" aria-pressed="false">SR</button>
+    </div>
+
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Toggle negative/positive mode">
+      <span class="theme-toggle-label">POSITIVE</span>
+    </button>
+
+    <a href="/contact" class="lets-create">
+      <span data-i18n="lets_create">LET'S CREATE</span>
+      <svg class="star" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" fill="currentColor"/>
+      </svg>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="about-top">
+
+  <!-- ABOUT HERO -->
+  <section class="about-hero" data-reveal="up">
+    <span class="cell-num" data-i18n="about_eyebrow">ABOUT</span>
+    <h1 data-i18n="about_title">BEHIND<br>THE <span class="red">SHUTTER.</span></h1>
+    <p data-i18n="about_subtitle">A closer look at the person, the process and the philosophy behind every frame.</p>
+  </section>
+
+  <!-- BIO -->
+  <section class="about-bio">
+    <div class="about-portrait" data-reveal="left">
+      <picture>
+        <source srcset="img/jankela8.webp" type="image/webp">
+        <img src="img/jankela8.jpeg" alt="Portrait — Rotten Cherry Co." loading="eager">
+      </picture>
+      <div class="red-overlay"></div>
+      <svg class="scribble" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true" style="top:10%; left:8%; width:55%;">
+        <path d="M2 30 C 40 10, 80 50, 120 20 S 200 45, 240 15 S 290 35, 298 25" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="about-bio-text" data-reveal="right">
+      <span class="cell-num" data-i18n="about_bio_eyebrow">THE STORY</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+      <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+      <blockquote class="about-pullquote" data-i18n="about_quote">"IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR."</blockquote>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum et dolorum fuga.</p>
+      <a href="/contact" class="btn-outline" data-i18n="about_bio_btn">GET IN TOUCH</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="about-stats">
+    <div class="about-stat" data-reveal="up">
+      <span class="stat-num">8+</span>
+      <span class="stat-label" data-i18n="stat_years">YEARS BEHIND THE LENS</span>
+    </div>
+    <div class="about-stat" data-reveal="up" data-reveal-delay="80">
+      <span class="stat-num">250+</span>
+      <span class="stat-label" data-i18n="stat_shoots">SESSIONS SHOT</span>
+    </div>
+    <div class="about-stat" data-reveal="up" data-reveal-delay="160">
+      <span class="stat-num">40+</span>
+      <span class="stat-label" data-i18n="stat_features">PUBLISHED FEATURES</span>
+    </div>
+    <div class="about-stat" data-reveal="up" data-reveal-delay="240">
+      <span class="stat-num">12</span>
+      <span class="stat-label" data-i18n="stat_awards">AWARDS &amp; MENTIONS</span>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="about-philosophy">
+    <div class="about-section-header" data-reveal="up">
+      <span class="cell-num" data-i18n="philosophy_eyebrow">HOW I WORK</span>
+      <h2 data-i18n="philosophy_title">PHILOSOPHY</h2>
+    </div>
+    <div class="philosophy-grid">
+      <article class="philosophy-col" data-reveal="left">
+        <span class="philosophy-num">01</span>
+        <h3 data-i18n="philosophy_1_title">LISTEN FIRST</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+      </article>
+      <article class="philosophy-col" data-reveal="up" data-reveal-delay="90">
+        <span class="philosophy-num">02</span>
+        <h3 data-i18n="philosophy_2_title">CHASE LIGHT</h3>
+        <p>Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur non nulla sit amet nisl tempus convallis.</p>
+      </article>
+      <article class="philosophy-col" data-reveal="right" data-reveal-delay="180">
+        <span class="philosophy-num">03</span>
+        <h3 data-i18n="philosophy_3_title">EDIT WITH INTENT</h3>
+        <p>Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus, nulla porttitor accumsan tincidunt vivamus suscipit.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="about-timeline">
+    <div class="about-section-header" data-reveal="up">
+      <span class="cell-num" data-i18n="timeline_eyebrow">THE JOURNEY</span>
+      <h2 data-i18n="timeline_title">TIMELINE</h2>
+    </div>
+    <div class="timeline-track">
+      <div class="timeline-item" data-reveal="left">
+        <span class="timeline-year">2016</span>
+        <div class="timeline-content">
+          <h3 data-i18n="timeline_1_title">FIRST CAMERA</h3>
+          <p>Vivamus suscipit tortor eget felis porttitor volutpat. Cras ultricies ligula sed magna dictum porta praesent sapien.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-reveal="right">
+        <span class="timeline-year">2019</span>
+        <div class="timeline-content">
+          <h3 data-i18n="timeline_2_title">STUDIO OPENS</h3>
+          <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh, massa convallis pellentesque.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-reveal="left">
+        <span class="timeline-year">2021</span>
+        <div class="timeline-content">
+          <h3 data-i18n="timeline_3_title">FIRST EDITORIAL</h3>
+          <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur arcu erat, accumsan id imperdiet et.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-reveal="right">
+        <span class="timeline-year">2024</span>
+        <div class="timeline-content">
+          <h3 data-i18n="timeline_4_title">ROTTEN CHERRY CO.</h3>
+          <p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Nulla quis lorem ut libero malesuada feugiat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEHIND THE LENS -->
+  <section class="about-bts">
+    <div class="about-section-header" data-reveal="up">
+      <span class="cell-num" data-i18n="bts_eyebrow">BEHIND THE LENS</span>
+      <h2 data-i18n="bts_title">ON SET</h2>
+    </div>
+    <div class="bts-grid">
+      <a href="/gallery" class="bts-frame" data-reveal="left">
+        <picture>
+          <source srcset="img/jankela2.webp" type="image/webp">
+          <img src="img/jankela2.jpeg" alt="On set" loading="lazy">
+        </picture>
+      </a>
+      <a href="/gallery" class="bts-frame" data-reveal="up" data-reveal-delay="100">
+        <picture>
+          <source srcset="img/jankela4.webp" type="image/webp">
+          <img src="img/jankela4.jpeg" alt="On set detail" loading="lazy">
+        </picture>
+      </a>
+      <a href="/gallery" class="bts-frame" data-reveal="right" data-reveal-delay="200">
+        <picture>
+          <source srcset="img/jankela7.webp" type="image/webp">
+          <img src="img/jankela7.jpeg" alt="On set" loading="lazy">
+        </picture>
+      </a>
+    </div>
+    <div class="sticky-note" data-i18n="bts_sticky">STILL LEARNING. STILL SHOOTING.</div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="about-cta" data-reveal="scale">
+    <h2 data-i18n="contact_title">LET'S CREATE<br>SOMETHING <span class="red">REAL.</span></h2>
+    <a href="/contact" class="btn-outline" data-i18n="about_cta_btn">START A CONVERSATION</a>
+  </section>
+
+</main>
+
+<!-- NEWSLETTER SIGNUP -->
+<section class="newsletter-section" data-reveal="up">
+  <span class="cell-num" data-i18n="newsletter_eyebrow">NEWSLETTER</span>
+  <h2 data-i18n="newsletter_title">STAY IN THE LOOP</h2>
+  <p data-i18n="newsletter_text">Occasional updates on new work and sessions. No spam.</p>
+  <script src="newsletter-signup.js"></script>
+</section>
+
+<!-- FOOTER TICKER -->
+<footer class="ticker" aria-label="Studio info">
+  <div class="ticker-track" id="ticker-track">
+    <!-- JS duplicates this set for seamless loop -->
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="theme-toggle.js"></script>
+<script src="viewfinder-cursor.js"></script>
+</body>
+</html>

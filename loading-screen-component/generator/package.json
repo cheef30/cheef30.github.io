@@ -1,0 +1,11 @@
+{
+  "name": "loading-screen-path-generator",
+  "version": "1.0.0",
+  "description": "Dev-time tool: converts a font + string into the static SVG path data LoadingScreen.tsx ships.",
+  "main": "generate-paths.js",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "opentype.js": "^2.0.0"
+  }
+}

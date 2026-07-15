@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Rotten Cherry Co.</title>
+<meta name="description" content="The full Rotten Cherry Co. gallery — studio, editorial, stage makeup, events, on-location and equestrian photography, filterable by category.">
+<link rel="canonical" href="https://rottencherry.co/gallery">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rotten Cherry Co.">
+<meta property="og:title" content="Gallery — Rotten Cherry Co.">
+<meta property="og:description" content="The full Rotten Cherry Co. gallery — studio, editorial, stage makeup, events, on-location and equestrian photography, filterable by category.">
+<meta property="og:url" content="https://rottencherry.co/gallery">
+<meta property="og:image" content="https://rottencherry.co/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gallery — Rotten Cherry Co.">
+<meta name="twitter:description" content="The full Rotten Cherry Co. gallery — studio, editorial, stage makeup, events, on-location and equestrian photography, filterable by category.">
+<meta name="twitter:image" content="https://rottencherry.co/img/og-image.jpg">
+
+<script>
+(function () {
+  try {
+    var stored = localStorage.getItem('rc-theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-main">ROTTEN<br>CHERRY</span>
+      <span class="logo-script">Co.</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="/gallery" class="active-nav" data-i18n="nav_work">WORK</a>
+      <a href="/#vision" data-i18n="nav_vision">VISION</a>
+      <a href="/about" data-i18n="nav_about">ABOUT</a>
+      <a href="/#services" data-i18n="nav_services">SERVICES</a>
+      <a href="/pricing" data-i18n="nav_pricing">PRICING</a>
+      <a href="/contact" data-i18n="nav_contact">CONTACT</a>
+    </nav>
+
+    <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+      <span class="lang-sep">/</span>
+      <button type="button" class="lang-btn" data-lang="sr" aria-pressed="false">SR</button>
+    </div>
+
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Toggle negative/positive mode">
+      <span class="theme-toggle-label">POSITIVE</span>
+    </button>
+
+    <button type="button" class="sound-toggle" id="sound-toggle" aria-pressed="false" aria-label="Unmute shutter sound">
+      <svg class="icon-off" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/>
+        <path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <svg class="icon-on" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/>
+        <path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </svg>
+    </button>
+
+    <a href="/contact" class="lets-create">
+      <span data-i18n="lets_create">LET'S CREATE</span>
+      <svg class="star" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" fill="currentColor"/>
+      </svg>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="gallery-top">
+
+  <!-- GALLERY PAGE HEADER -->
+  <section class="gallery-intro" data-reveal="up">
+    <span class="cell-num" data-i18n="gallery_eyebrow">GALLERY</span>
+    <h1 data-i18n="gallery_title">SELECTED WORK</h1>
+    <p data-i18n="gallery_subtitle">Every frame, one archive. Filter by the story you want to see.</p>
+  </section>
+
+  <!-- FILTER BAR -->
+  <section class="gallery-filters" id="gallery-filters" aria-label="Filter gallery by category" data-reveal="up" data-reveal-delay="120">
+    <button type="button" class="filter-btn active" data-filter="all" data-i18n="filter_all">ALL</button>
+    <button type="button" class="filter-btn" data-filter="studio" data-i18n="filter_studio">STUDIO</button>
+    <button type="button" class="filter-btn" data-filter="editorial" data-i18n="filter_editorial">EDITORIAL</button>
+    <button type="button" class="filter-btn" data-filter="stage" data-i18n="filter_stage">STAGE MAKEUP</button>
+    <button type="button" class="filter-btn" data-filter="events" data-i18n="filter_events">EVENTS</button>
+    <button type="button" class="filter-btn" data-filter="location" data-i18n="filter_location">ON LOCATION</button>
+    <button type="button" class="filter-btn" data-filter="horses" data-i18n="filter_horses">WITH HORSES</button>
+  </section>
+
+  <!-- GALLERY GRID (populated from Supabase by gallery-loader.js) -->
+  <section class="gallery-grid" id="gallery-grid"></section>
+
+  <p class="gallery-empty" id="gallery-empty" data-i18n="gallery_empty" style="display:none">No photos in this category yet — check back soon.</p>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <path d="M4 4 L20 20 M20 4 L4 20" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <button type="button" class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+      <path d="M15 4 L7 12 L15 20" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <figure class="lightbox-content">
+    <img id="lightbox-img" src="" alt="">
+    <figcaption id="lightbox-caption"></figcaption>
+  </figure>
+  <button type="button" class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Next image">
+    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+      <path d="M9 4 L17 12 L9 20" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>
+
+<!-- NEWSLETTER SIGNUP -->
+<section class="newsletter-section" data-reveal="up">
+  <span class="cell-num" data-i18n="newsletter_eyebrow">NEWSLETTER</span>
+  <h2 data-i18n="newsletter_title">STAY IN THE LOOP</h2>
+  <p data-i18n="newsletter_text">Occasional updates on new work and sessions. No spam.</p>
+  <script src="newsletter-signup.js"></script>
+</section>
+
+<!-- FOOTER TICKER -->
+<footer class="ticker" aria-label="Studio info">
+  <div class="ticker-track" id="ticker-track">
+    <!-- JS duplicates this set for seamless loop -->
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="supabase-config.js"></script>
+<script src="script.js"></script>
+<script src="gallery-loader.js"></script>
+<script src="theme-toggle.js"></script>
+<script src="viewfinder-cursor.js"></script>
+<script src="shutter-sound.js"></script>
+</body>
+</html>

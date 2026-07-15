@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin — Rotten Cherry Co.</title>
+
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+<script>
+(function () {
+  try {
+    var stored = localStorage.getItem('rc-theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+<main class="admin-shell">
+  <a href="/" class="admin-logo">
+    <span class="logo-main">ROTTEN<br>CHERRY</span>
+    <span class="logo-script">Co.</span>
+  </a>
+
+  <!-- LOGIN -->
+  <section class="admin-panel" id="login-panel">
+    <h1>Admin login</h1>
+    <p class="admin-hint">Sign in to publish photos to the gallery.</p>
+    <form id="login-form" novalidate>
+      <label for="login-email">Email</label>
+      <input type="email" id="login-email" name="email" autocomplete="username" required>
+
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+
+      <button type="submit" class="admin-btn" id="login-btn">Log in</button>
+      <p class="admin-message" id="login-message" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- UPLOAD -->
+  <section class="admin-panel" id="upload-panel" hidden>
+    <div class="admin-panel-header">
+      <h1>Upload photo</h1>
+      <button type="button" class="admin-link-btn" id="logout-btn">Log out</button>
+    </div>
+    <form id="upload-form" novalidate>
+      <label for="photo-file">Image</label>
+      <input type="file" id="photo-file" name="file" accept="image/*" required>
+
+      <label for="photo-alt">Alt text</label>
+      <input type="text" id="photo-alt" name="alt" required placeholder="Describes the image for accessibility & SEO">
+
+      <label for="photo-title">Title</label>
+      <input type="text" id="photo-title" name="title" required placeholder="Shown as the caption">
+
+      <label for="photo-seo">SEO description</label>
+      <textarea id="photo-seo" name="seo" rows="3" placeholder="Short description for search engines"></textarea>
+
+      <label for="photo-category">Category</label>
+      <select id="photo-category" name="category" required></select>
+
+      <button type="submit" class="admin-btn" id="upload-btn">Objavi</button>
+      <p class="admin-message" id="upload-message" role="alert"></p>
+    </form>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="../supabase-config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

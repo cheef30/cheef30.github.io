@@ -1,0 +1,76 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0d0c0d;
+  opacity: 1;
+  transition: opacity 250ms ease;
+}
+
+.overlay.hiding {
+  opacity: 0;
+}
+
+.logo {
+  width: min(70vw, 520px);
+  height: auto;
+  overflow: visible;
+}
+
+.glyph {
+  fill: none;
+  stroke: #a4333f;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-name: draw, erase;
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-duration: var(--draw-duration), var(--erase-duration);
+  animation-delay: var(--draw-delay), var(--erase-delay);
+  animation-fill-mode: forwards, forwards;
+}
+
+/* "fill" reveal style: the drawn outline crossfades to a solid mark during the hold, then fades back to just the outline right before the erase starts. */
+.glyph.withFill {
+  fill: #a4333f;
+  fill-opacity: 0;
+  animation-name: draw, erase, fillIn, fillOut;
+  animation-timing-function: ease-in-out, ease-in-out, ease-in, ease-out;
+  animation-duration: var(--draw-duration), var(--erase-duration), var(--fill-in-duration), var(--fill-out-duration);
+  animation-delay: var(--draw-delay), var(--erase-delay), var(--fill-in-delay), var(--fill-out-delay);
+  animation-fill-mode: forwards, forwards, forwards, forwards;
+}
+
+/* prefers-reduced-motion: show the finished mark immediately, no animation. */
+.glyph.reduced {
+  animation: none;
+  stroke-dashoffset: 0;
+}
+.glyph.reduced.withFill {
+  fill-opacity: 1;
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Continuing past 0 in the same direction makes each letter's stroke retreat
+   back toward its own start point; combined with a reversed per-letter delay
+   stagger (last letter first) this reads as an eraser sweeping right to left. */
+@keyframes erase {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -1; }
+}
+
+@keyframes fillIn {
+  to { fill-opacity: 1; }
+}
+
+@keyframes fillOut {
+  to { fill-opacity: 0; }
+}
