@@ -269,6 +269,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .hamburger {
   display: none;
+  /* Every other header child sets flex-shrink: 0, so without this the
+     hamburger is the only item that can absorb an overflowing row — on the
+     pages carrying the extra sound toggle it collapsed to zero width and the
+     mobile menu could not be opened at all. */
+  flex-shrink: 0;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -616,11 +621,14 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin: 0;
 }
 
+/* Portrait framing: both layers hold the real unretouched/retouched pair
+   (2:3), so the box matches them and no filters are applied — the slider
+   shows the actual edit, not a CSS approximation of one. */
 .compare-slider {
   position: relative;
-  max-width: 900px;
+  max-width: 480px;
   margin: 0 auto;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 2 / 3;
   overflow: hidden;
   border: 2px solid var(--border);
   cursor: ew-resize;
@@ -637,15 +645,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   object-fit: cover;
   pointer-events: none;
 }
-.compare-after img {
-  filter: contrast(1.12) saturate(1.2) brightness(1.02);
-}
 .compare-before {
   clip-path: inset(0 50% 0 0);
   will-change: clip-path;
-}
-.compare-before img {
-  filter: grayscale(0.9) contrast(0.85) brightness(0.95) saturate(0.6);
 }
 
 .compare-badge {
@@ -1176,10 +1178,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 13px;
   letter-spacing: 0.5px;
 }
+/* 3:4 box matching the portrait it holds, so object-fit: cover has nothing
+   to crop — a short landscape box used to cut the subject's head off. */
 .contact-photo {
   position: relative;
-  height: clamp(160px, 22vw, 260px);
-  max-width: 420px;
+  width: 100%;
+  max-width: clamp(240px, 26vw, 340px);
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   border: 2px solid #333;
 }
@@ -1897,12 +1902,17 @@ body.lightbox-open { overflow: hidden; }
   .main-nav { display: none; }
   .lets-create { display: none; }
   .hamburger { display: flex; }
+  /* Logo + lang + theme (+ sound) + hamburger overflow a phone-width row at
+     the desktop gap, so tighten it enough that they all fit. */
+  .header-inner { gap: 12px; }
 
+  /* Only the two full-width blocks get an order, so they wrap onto their own
+     rows. Everything else keeps order:0 and therefore stays in source order
+     on the top row — giving .logo/.hamburger an order here would sort them
+     after the lang switch and theme toggle, which default to 0. */
   .site-header.nav-open .header-inner {
     flex-wrap: wrap;
   }
-  .site-header.nav-open .logo { order: 1; }
-  .site-header.nav-open .hamburger { order: 2; }
   .site-header.nav-open .main-nav {
     order: 3;
     flex-basis: 100%;
@@ -1934,7 +1944,6 @@ body.lightbox-open { overflow: hidden; }
   .moodboard { min-height: 220px; }
   .sticky-note { position: static; margin-top: 14px; transform: rotate(-2deg); width: auto; }
 
-  .compare-slider { aspect-ratio: 4 / 5; }
   .compare-handle-grip { width: 34px; height: 34px; }
 
   .gallery-grid {

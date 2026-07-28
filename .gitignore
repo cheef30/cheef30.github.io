@@ -6,3 +6,8 @@ node_modules/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Full-resolution source photos. The site only ever serves the derived
+# img/*.jpeg|webp files and the Supabase gallery, so the originals stay local
+# instead of living forever in the public history.
+img/Jankelin sajt/
