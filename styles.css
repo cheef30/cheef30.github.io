@@ -397,6 +397,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: var(--black);
   overflow: hidden;
   padding: 0 0 4px 0;
+  /* Frames arrive from Supabase after paint, so hold their height up front —
+     otherwise the band is 4px tall and everything below it jumps down once
+     the photos land. Matches .filmstrip-frame's height + border + padding. */
+  min-height: calc(clamp(150px, 20vw, 220px) + 10px);
 }
 .filmstrip-track {
   display: flex;
@@ -433,6 +437,14 @@ ul { margin: 0; padding: 0; list-style: none; }
   height: 100%;
   object-fit: cover;
   filter: grayscale(1) contrast(1.05);
+  /* Fades in per frame as each photo decodes (see script.js), so a slow
+     connection shows frames filling in instead of black holes. */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.filmstrip-frame.is-loaded img { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .filmstrip-frame img { opacity: 1; transition: none; }
 }
 .filmstrip-frame .scribble {
   width: 80%;

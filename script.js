@@ -378,13 +378,23 @@ document.addEventListener('DOMContentLoaded', () => {
         frame.className = 'filmstrip-frame';
 
         const img = document.createElement('img');
-        img.src = photo.image_url;
+        // A 110px-wide frame does not need the 2000px original — pulling those
+        // meant ~2.7 MB before a single frame appeared, so the strip sat black
+        // for seconds on a phone.
+        img.src = window.RC_THUMB ? window.RC_THUMB(photo.image_url, 340) : photo.image_url;
         img.alt = photo.alt_text || 'Photography highlight';
         // Deliberately not lazy: the marquee moves frames into view with a CSS
         // transform, which does not re-trigger lazy loading, so the duplicated
         // half of the strip stayed permanently blank. The duplicates reuse the
         // first half's URLs, so this costs no extra requests.
         img.decoding = 'async';
+        // Fade each frame in as it decodes, so a slow connection shows the
+        // black film base filling in rather than empty holes.
+        img.addEventListener('load', () => frame.classList.add('is-loaded'));
+        img.addEventListener('error', () => {
+          if (img.src !== photo.image_url) img.src = photo.image_url; // transform failed
+          else frame.classList.add('is-loaded');
+        });
         frame.appendChild(img);
 
         if (scribbleFrames.has(i)) frame.insertAdjacentHTML('beforeend', scribbleOverlay);
@@ -570,7 +580,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const item = visibleItems[currentIndex];
       const img = item.querySelector('img');
       const caption = item.querySelector('figcaption');
-      lightboxImg.src = img.src;
+      // The grid holds a thumbnail; open the full-size original here.
+      lightboxImg.src = item.dataset.full || img.src;
       lightboxImg.alt = img.alt;
       lightboxCaption.textContent = caption
         ? `${caption.textContent} — ${currentIndex + 1} / ${visibleItems.length}`

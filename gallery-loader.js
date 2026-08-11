@@ -22,7 +22,13 @@
     figure.dataset.category = photo.category;
 
     const img = document.createElement('img');
-    img.src = photo.image_url;
+    // Grid cells top out around 260px, so they get a thumbnail; the full-size
+    // original is kept on the figure for the lightbox to swap in on open.
+    img.src = window.RC_THUMB ? window.RC_THUMB(photo.image_url, 600) : photo.image_url;
+    img.addEventListener('error', () => {
+      if (img.src !== photo.image_url) img.src = photo.image_url;
+    });
+    figure.dataset.full = photo.image_url;
     img.alt = photo.alt_text || '';
     img.title = photo.title || '';
     img.loading = 'lazy';
