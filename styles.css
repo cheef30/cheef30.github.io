@@ -139,12 +139,18 @@ ul { margin: 0; padding: 0; list-style: none; }
   animation-delay: var(--draw-delay), var(--erase-delay), var(--fill-in-delay), var(--fill-out-delay);
   animation-fill-mode: forwards, forwards, forwards, forwards;
 }
+/* Reduced-motion variant: no stroke drawing, but still a soft fade rather than
+   the logo snapping into place and vanishing again, which read as a glitch. */
 .loading-glyph.reduced {
-  animation: none;
+  animation: loading-reduced-in 520ms ease-out both;
   stroke-dashoffset: 0;
 }
 .loading-glyph.reduced.with-fill {
   fill-opacity: 1;
+}
+@keyframes loading-reduced-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 @keyframes loading-draw {
   to { stroke-dashoffset: 0; }
@@ -405,8 +411,18 @@ ul { margin: 0; padding: 0; list-style: none; }
 .filmstrip-track {
   display: flex;
   width: max-content;
-  animation: scroll-left 34s linear infinite;
   will-change: transform;
+}
+/* script.js adds .is-running only once the frames are in the track. The
+   keyframes below shift by -50% of the track's *own* width, so while the track
+   is still empty — which it is for the first second or two, until the photos
+   come back from the database — that resolves to zero. Safari can keep serving
+   that resolved value after the track fills out, leaving the marquee frozen
+   until something forces it to recompute (locking and unlocking the phone, for
+   instance). Starting the animation after the content exists avoids the whole
+   situation. */
+.filmstrip-track.is-running {
+  animation: scroll-left 34s linear infinite;
 }
 /* Only where a real pointer can hover. On touch screens :hover latches after
    a tap and would leave the marquee frozen until something else is tapped. */

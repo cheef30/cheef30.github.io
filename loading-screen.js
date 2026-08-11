@@ -3,7 +3,9 @@
   if (!overlay) return;
 
   var TOTAL_MS = 3300; // draw 1.6s + hold 0.6s + erase 1.1s
-  var REDUCED_MOTION_HOLD_MS = 700;
+  // Long enough for the reduced-motion fade-in to land and be read, instead of
+  // the logo flashing past in well under a second.
+  var REDUCED_MOTION_HOLD_MS = 1500;
   var EXIT_FADE_MS = 250;
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

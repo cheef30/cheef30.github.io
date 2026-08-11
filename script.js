@@ -391,6 +391,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       track.innerHTML = '';
       track.appendChild(frag);
+
+      // Start the scroll only now that the track has a real width — see the
+      // .filmstrip-track.is-running comment in styles.css. One frame's delay so
+      // the new children are laid out before the animation resolves its -50%.
+      requestAnimationFrame(() => track.classList.add('is-running'));
+
+      // Safari can drop or freeze a running animation while the page sits in
+      // the background (locked phone, switched tab, back-forward cache). Both
+      // halves of the strip are identical, so replaying from the start is
+      // visually seamless and cheap insurance.
+      const restartMarquee = () => {
+        if (!track.classList.contains('is-running')) return;
+        track.classList.remove('is-running');
+        void track.offsetWidth;
+        track.classList.add('is-running');
+      };
+      window.addEventListener('pageshow', (e) => { if (e.persisted) restartMarquee(); });
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) restartMarquee();
+      });
     })();
   }
 
