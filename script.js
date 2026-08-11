@@ -380,7 +380,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const img = document.createElement('img');
         img.src = photo.image_url;
         img.alt = photo.alt_text || 'Photography highlight';
-        img.loading = 'lazy';
+        // Deliberately not lazy: the marquee moves frames into view with a CSS
+        // transform, which does not re-trigger lazy loading, so the duplicated
+        // half of the strip stayed permanently blank. The duplicates reuse the
+        // first half's URLs, so this costs no extra requests.
+        img.decoding = 'async';
         frame.appendChild(img);
 
         if (scribbleFrames.has(i)) frame.insertAdjacentHTML('beforeend', scribbleOverlay);

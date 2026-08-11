@@ -1,12 +1,19 @@
 /* ============ RESET & VARIABLES ============ */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Must sit on the root: only the root element's overflow propagates to the
+     viewport, so body's overflow-x below never actually stopped the page from
+     scrolling sideways. `clip` rather than `hidden` because `hidden` would
+     turn the root into a scroll container and break the sticky header. */
+  overflow-x: clip;
+}
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
@@ -66,6 +73,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 [data-reveal].is-visible {
   opacity: 1;
   transform: none;
+}
+/* Below this width the bento cells, contact columns and about blocks all go
+   full-bleed, so a sideways start offset would hang off the right edge and
+   widen the page. Come from below instead. */
+@media (max-width: 1199px) {
+  [data-reveal="left"],
+  [data-reveal="right"] { transform: translateY(52px); }
 }
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1; transform: none; }
@@ -390,7 +404,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   animation: scroll-left 34s linear infinite;
   will-change: transform;
 }
-.filmstrip-track:hover { animation-play-state: paused; }
+/* Only where a real pointer can hover. On touch screens :hover latches after
+   a tap and would leave the marquee frozen until something else is tapped. */
+@media (hover: hover) {
+  .filmstrip-track:hover { animation-play-state: paused; }
+}
 @keyframes scroll-left {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -796,6 +814,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .gallery-item.is-visible {
   opacity: 1;
   transform: translate(0, 0);
+}
+/* Same reason as the [data-reveal] block: the rightmost column would hang
+   past the viewport edge while waiting to animate in. */
+@media (max-width: 1199px) {
+  .gallery-item { transform: translate(0, 34px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .gallery-item { opacity: 1; transform: none; }
